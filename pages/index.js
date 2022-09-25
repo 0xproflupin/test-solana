@@ -8,7 +8,10 @@ export default function Home() {
   const sendSol = async () => {
     if (!publicKey) return
 
-    const txn = new Transaction()
+    console.log(publicKey)
+    console.log(publicKey.toString())
+    
+    let txn = new Transaction()
     txn.add(
       SystemProgram.transfer({
         fromPubkey: publicKey,
