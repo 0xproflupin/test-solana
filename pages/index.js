@@ -17,6 +17,11 @@ export default function Home() {
       })
     )
 
+    txn.feePayer = publicKey
+    txn.recentBlockhash = (
+      await connection.getLatestBlockhash()
+    ).blockhash
+
     try {
       const signature = await sendTransaction(txn, connection)
       console.log(signature)
